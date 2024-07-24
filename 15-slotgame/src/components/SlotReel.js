@@ -33,9 +33,12 @@ const SlotReel = ({ symbols, width, height, spinning, lastSymbolAdd}) => {
   }, [symbols, width, height]);
 
   useEffect(() => {
+    const ticker = lastSymbolAdd.ticker;
+    ticker.add((delta)=>{
+      console.log(delta);
+    })
     if (spinning) {
       const reelContainer = reelContainerRef.current;
-
       gsap.fromTo(reelContainer,
         {y:0}, 
         {
